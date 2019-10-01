@@ -25,7 +25,6 @@ namespace Stripe\Issuing;
  * @property int $pending_held_amount
  * @property mixed $request_history
  * @property string $status
- * @property mixed $request_history
  * @property \Stripe\Collection $transactions
  * @property mixed $verification_data
  *
@@ -43,6 +42,8 @@ class Authorization extends \Stripe\ApiResource
      * @param array|null $params
      * @param array|string|null $options
      *
+     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     *
      * @return Authorization The approved authorization.
      */
     public function approve($params = null, $options = null)
@@ -56,6 +57,8 @@ class Authorization extends \Stripe\ApiResource
     /**
      * @param array|null $params
      * @param array|string|null $options
+     *
+     * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
      * @return Authorization The declined authorization.
      */

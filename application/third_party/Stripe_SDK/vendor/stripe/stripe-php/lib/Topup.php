@@ -26,7 +26,6 @@ namespace Stripe;
  */
 class Topup extends ApiResource
 {
-
     const OBJECT_NAME = "topup";
 
     use ApiOperations\All;
@@ -35,8 +34,20 @@ class Topup extends ApiResource
     use ApiOperations\Update;
 
     /**
+     * Possible string representations of the status of the top-up.
+     * @link https://stripe.com/docs/api/topups/object#topup_object-status
+     */
+    const STATUS_CANCELED  = 'canceled';
+    const STATUS_FAILED    = 'failed';
+    const STATUS_PENDING   = 'pending';
+    const STATUS_REVERSED  = 'reversed';
+    const STATUS_SUCCEEDED = 'succeeded';
+
+    /**
      * @param array|null $params
      * @param array|string|null $options
+     *
+     * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
      * @return Topup The canceled topup.
      */
